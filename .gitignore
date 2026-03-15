@@ -1,0 +1,27 @@
+# Binary
+icu
+
+# Test artifacts
+*.test
+*.out
+
+# Environment / secrets
+.env
+*.env.*
+
+# FIT files (large binary activity files)
+*.fit
+*.FIT
+
+# Local Claude Code session memory
+.claude/
+
+# GoReleaser dist output
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Completions (generated at build time)
+completions/
