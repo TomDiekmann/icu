@@ -511,11 +511,11 @@ func printEventCard(e models.Event) {
 		}
 	}
 
-	if e.WorkoutDoc != "" {
+	if doc := e.WorkoutDoc.Text(); doc != "" {
 		fmt.Println()
 		fmt.Printf("  %s\n", tui.Header.Render("  WORKOUT STEPS"))
 		fmt.Println()
-		for _, line := range strings.Split(e.WorkoutDoc, "\n") {
+		for _, line := range strings.Split(doc, "\n") {
 			if strings.TrimSpace(line) == "" {
 				continue
 			}

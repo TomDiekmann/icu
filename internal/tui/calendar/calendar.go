@@ -550,8 +550,8 @@ func (m Model) dayContent() string {
 				}
 				sb.WriteString(fmt.Sprintf("    %s\n", dim.Render(desc)))
 			}
-			if e.WorkoutDoc != "" {
-				for _, step := range strings.Split(e.WorkoutDoc, "\n") {
+			if doc := e.WorkoutDoc.Text(); doc != "" {
+				for _, step := range strings.Split(doc, "\n") {
 					step = strings.TrimSpace(step)
 					if step == "" {
 						continue

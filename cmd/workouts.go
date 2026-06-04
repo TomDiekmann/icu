@@ -179,7 +179,7 @@ func printWorkoutsTable(workouts []models.Event, oldest, newest string) error {
 		if len(name) > 30 {
 			name = name[:28] + "…"
 		}
-		preview := workoutDocPreview(w.WorkoutDoc, 35)
+		preview := workoutDocPreview(w.WorkoutDoc.Text(), 35)
 		t.Row(
 			format.Date(w.StartDateLocal),
 			tui.SportStyle(w.Type).Render(w.Type),
@@ -236,10 +236,10 @@ func printWorkoutCard(e models.Event) error {
 	}
 
 	// Workout steps.
-	if e.WorkoutDoc != "" {
+	if doc := e.WorkoutDoc.Text(); doc != "" {
 		fmt.Println(tui.Header.Render("  WORKOUT STEPS"))
 		fmt.Println()
-		renderWorkoutSteps(e.WorkoutDoc)
+		renderWorkoutSteps(doc)
 		fmt.Println()
 	}
 
